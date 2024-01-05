@@ -46,4 +46,6 @@ public class LoginAuthControllerTest {
 
         verify(authenticationService, times(1)).getAuthenticationToken(user, password);
     }
+
+
 }

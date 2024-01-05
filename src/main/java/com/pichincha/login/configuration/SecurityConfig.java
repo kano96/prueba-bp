@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Order(2)
     SecurityFilterChain publicFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .securityMatcher("/api/**")
+                .securityMatcher("/login")
                 .authorizeHttpRequests(auth -> {
                     auth.anyRequest().authenticated();
                 })

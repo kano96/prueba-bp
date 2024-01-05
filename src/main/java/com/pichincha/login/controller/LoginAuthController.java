@@ -19,14 +19,7 @@ public class LoginAuthController {
 
     @PostMapping("/login")
     public ResponseEntity<ResponseDto> authenticateUser(@RequestBody AuthRequestDto authRequest){
-        try {
             ResponseDto response = authenticationService.getAuthenticationToken(authRequest.getUser(), authRequest.getPassword());
             return ResponseEntity.ok(response);
-        } catch (Error e){
-            ResponseDto forbiddenResponse = new ResponseDto();
-            forbiddenResponse.setMessage("Usuario no autorizado");
-            return new ResponseEntity<>(forbiddenResponse, HttpStatus.FORBIDDEN);
-        }
-
     }
 }
